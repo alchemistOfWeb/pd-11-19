@@ -1,0 +1,393 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(6, 39, 66);
+    background-size: cover;
+}
+
+@HEADER-HEIGHT: 40px;
+@SIDBAR_MENU_HEIGHT: @HEADER-HEIGHT/100*57;
+
+.header{
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(28, 96, 151, 0.281);
+    height: @HEADER-HEIGHT;
+    width: 100%;
+    .sidebar-menu{
+        height: @SIDBAR_MENU_HEIGHT;
+        width: 100%;
+        background-color: rgb(29, 31, 36);
+        display: flex;
+        .sidebar-button{
+            margin: 2px auto;
+            height: @SIDBAR_MENU_HEIGHT+4;
+            padding: 3px 4px;
+            color: rgb(29, 6, 73);
+            text-shadow: 0 0 2px rgb(34, 28, 28);
+            border-radius: 20%;
+            background: radial-gradient(50% 50%, rgb(201, 182, 182) 0.1%,rgb(34, 58, 197) );
+        }
+    }
+
+    .file-path{
+        height: 43%;
+        color: rgb(224, 220, 220);
+
+    }
+}
+
+.clear-header{
+    height: @SIDBAR_MENU_HEIGHT;
+}
+
+.section{
+    overflow: hidden;
+    background-color: rgb(201, 77, 77);
+    background-image: url(gifs/WeKf.gif);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 700px;
+    padding: 5% 2% 5% 5%;
+
+    .clear-main{
+        height: 20px;
+    }
+    .main{
+        float: left;
+        width: 75%;
+        min-height: 900px;
+        min-width: 200px;
+        /*background: radial-gradient(50% 50%, rgba(0, 0, 0, 0.3) 0.1%,rgba(34, 59, 197, 0.2) );*/
+        padding: 1%;
+        
+        .cards-container{
+            /*background-color: rgba(36, 19, 19, 0.13);*/
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            perspective-origin: 50% 400px;
+            perspective: 1000px;
+            
+            
+
+
+            .card-cell{
+                background-color: rgba(100, 51, 51, 0.021);
+                height: 230px;
+                padding: 30px;
+
+                
+
+                .card{
+                    overflow: hidden;
+                    background-color: rgb(226, 151, 12);
+                    /*background: linear-gradient(60deg, rgb(243, 236, 236), rgb(167, 167, 24));*/
+                    
+
+                    height: 100%;
+                    width: 100%;
+                    
+                    border-style: double;
+                    border-width: 3px;
+                    border-color: khaki;
+                    border-radius: 50%;
+
+                    box-shadow: 0 0 100px 1px rgb(46, 46, 105);
+
+                    .card-blur{
+                        background-image: url(gifs/BlueSfera_.gif);
+                        background-position: center;
+                        background-size: 110% 110%;
+                        overflow: hidden;
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 50%;
+                        filter: blur(0.5px)  contrast(100%);
+
+                        
+                        transition-duration: .5s;
+
+                        .card-ref{
+                            display: flex;
+                            height: 100%;
+                            width: 100%;
+                            
+                            text-decoration: none;
+                            
+    
+                            .card-img{
+                                display: none;
+                                width: 20%;
+                                height: 20%;
+    
+                            }
+                            .card-header{
+                                margin: auto;
+                                font-size: 2.5em;
+                            }
+    
+                        }
+                    }
+                    .card-blur:hover {
+                        filter: blur(0px) contrast(200%);
+                        
+                    
+
+                    }
+                }
+
+            }
+            
+        }
+            
+        
+
+
+        p{
+            font-size: 1.1em;
+            color: grey;
+            text-shadow: 0 0 1px black, 1px 1px 1px black,0 0 3px grey;
+        }
+
+    }
+
+    .aside{
+        position: fixed;
+        right: -35px;
+        background-image: url(img/Goldframe_.png);
+        background-position: center;
+        background-size: 100% 100%;
+        width: 300px;
+        height: 450px;
+        padding: 140px 90px 100px 80px;
+        font-size: 1.1em;
+        transform: perspective(900px) rotateY(-47deg);
+        transition-duration: 1s;
+        
+        .aside-container{
+            height: 100%;
+            background-color: rgba(53, 12, 12, 0.6);
+            overflow: auto;
+            
+            
+            .navigation-page-container{
+                padding: 10px 0px 10px 50px;
+                color: red;
+    
+                .navigation-page-list{
+                    li{
+                        color: rgb(132, 132, 197);
+                        a{
+                            font-size: 1.1em;
+                            color: rgb(172, 172, 219);
+                        }
+                    }
+                }
+            }
+    
+            .navigation-topic-container{
+
+                padding: 10px 0px 10px 50px;
+                
+                color: red;
+                .navigation-topic-list{
+                    color: rgb(132, 132, 197);
+                    li{
+                        color: rgb(132, 132, 197);
+                        a{
+                            font-size: 1.1em;
+                            color: rgb(172, 172, 219);
+                        }
+
+                    }
+
+                }
+            }
+        }
+        
+        
+    }
+
+    .aside:hover{
+        transform: perspective(900px) rotateY(-10deg);
+    }
+
+    @media screen and (max-width:1409px) {
+        .main{
+            width: 90%;
+        }
+        .aside{
+            overflow: auto;
+            width: 60%;
+            height: 450px;
+            padding: 140px 201px 100px 187px;
+            font-size: 1.1em;
+            
+            margin-bottom: 50px;
+            position: static;
+            float: left;
+            
+            
+           
+            font-size: 1.1em;
+            transform: perspective(600px) rotateX(15deg);
+            .aside-container{
+                background-color: rgba(95, 68, 29, 0.226);
+            }
+
+        }
+
+        .aside:hover{
+            transform: perspective(600px) rotateX(15deg);
+        }
+    }
+
+    
+
+    @media screen and(max-width: 1060px) {
+        .card-cell{
+            height: 150px !important;
+            padding: 15px !important;
+        }
+        .aside{
+            width: 70%;
+            padding: 140px 165px 100px 163px;
+        }
+    }
+
+    @media screen and(max-width: 720px) {
+        .card-cell{
+            height: 120px !important;
+            padding: 13px !important;
+        }
+        .aside{
+            width: 50%;
+            padding: 140px 80px 100px 75px;
+        }
+    }
+
+@PROCENT: 100%;
+
+    @media screen and(min-width: 520px){
+        .card-cell:nth-child(4n+1) .card{
+            transform: matrix3d(1.0, 0.0, -0.45, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, 65.0, 1.0);
+        }
+        .card-cell:nth-child(4n+2) .card{
+            transform: matrix3d(1.0, 0.0, -0.15, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, -20.0,1.0);
+        }
+        .card-cell:nth-child(4n+3) .card{
+            transform: matrix3d(1.0, 0.0, 0.15, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, -20.0,1.0);
+        }
+        .card-cell:nth-child(4n+4) .card{
+            transform: matrix3d(1.0, 0.0, 0.45, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, 65.0,1.0);
+        }
+    }
+    @media screen and(max-width: 520px) {
+        .cards-container{
+            grid-template-columns: repeat(3, @PROCENT/3) !important;
+        }
+        .card-cell:nth-child(3n+1) .card{
+            transform: matrix3d(1.0, 0.0, -0.25, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, 20.0,1.0);
+        }
+        .card-cell:nth-child(3n+2) .card{
+            transform: matrix3d(1.0, 0.0, 0.0, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, 0.0,1.0);
+        }
+        .card-cell:nth-child(3n+3) .card{
+            transform: matrix3d(1.0, 0.0, 0.25, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, 20.0,1.0);
+        }
+        .aside{
+            width: 50%;
+            height: 300px;
+            padding: 100px 70px 70px 65px;
+        }
+    }
+
+    @media screen and(max-width: 420px) {
+        .cards-container{
+            grid-template-columns: repeat(2, @PROCENT/2) !important;
+        }
+        .card-cell:nth-child(2n+1) .card{
+            transform: matrix3d(1.0, 0.0, -0.15, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, 0.0,1.0);
+        }
+        .card-cell:nth-child(2n+2) .card{
+            transform: matrix3d(1.0, 0.0, 0.15, 0.0,
+                                0.0, 1.0, 0.0, 0.0,
+                                0.0, 0.0, 1.0, 0.0,
+                                0.0, 0.0, 0.0,1.0);
+        }
+    }
+}
+
+.footer{
+    background-color: black;
+    min-height: 300px;
+    display: flex;
+    p{
+        margin: auto;
+        font-size: 1.1em;
+        color: white;
+    }
+}
+
+
+::-webkit-scrollbar-button {
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:4px;
+    height:0px
+}
+    
+::-webkit-scrollbar-track {
+    background-color:rgb(5, 13, 21)
+}
+    
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color:#6dc0c8;
+}
+    
+::-webkit-scrollbar-thumb:hover{
+    background-color:#56999f;
+}
+    
+::-webkit-resizer{
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:4px;
+    height:0px;
+}
+    
+::-webkit-scrollbar{
+    width: 4px;
+}
