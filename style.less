@@ -86,14 +86,18 @@ body{
             transform-origin: 50% 50%;
             position: absolute;
             .menu-square{
-                background: yellow;
+                background-image: url(gifs/GreenSfera_.gif);
+                background-position: center;
+                background-size: 150% 150%;
+                background-color: rgba(255, 0, 0, 0.877);
                 border: 1px solid rgb(0, 0, 0);
                 width: 60px;
                 height: 60px;
                 border-radius: 50%;
                 overflow: hidden;
-                font-size: 190%;
+                font-size: 130%;
                 display: flex;
+                transition-duration: .5s;
                 
                 a{
                     display: flex;
@@ -106,6 +110,7 @@ body{
                     
                 }
             }
+            
         }
         @PUNCT_ROTATE: 360deg/5;
         .menu-punct:nth-child(1){
@@ -144,6 +149,9 @@ body{
     }
     
 
+}
+.menu-square:hover{
+    box-shadow: 0 0 10px 10px rgb(167, 118, 45);
 }
 
 .clear-header{

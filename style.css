@@ -78,14 +78,18 @@ body {
   position: absolute;
 }
 .main-menu .menu-body .menu-punct .menu-square {
-  background: yellow;
+  background-image: url(gifs/GreenSfera_.gif);
+  background-position: center;
+  background-size: 150% 150%;
+  background-color: rgba(255, 0, 0, 0.877);
   border: 1px solid #000000;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
-  font-size: 190%;
+  font-size: 130%;
   display: flex;
+  transition-duration: 0.5s;
 }
 .main-menu .menu-body .menu-punct .menu-square a {
   display: flex;
@@ -124,6 +128,9 @@ body {
 }
 .main-menu .menu-body .menu-punct:nth-child(5) .menu-square {
   transform: rotate(-378deg);
+}
+.menu-square:hover {
+  box-shadow: 0 0 10px 10px #a7762d;
 }
 .clear-header {
   height: 22.8px;
