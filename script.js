@@ -2,7 +2,8 @@ let last_known_scroll_position = 0;
 let ticking = false;
 let cardsContainer =document.querySelector('.cards-container');
 
-function doSomething(scroll_pos) {
+
+function movePerspective(scroll_pos) {
   // Do something with the scroll position
   let perspect= scroll_pos + 400;
   perspect.toString();
@@ -15,10 +16,25 @@ window.addEventListener('scroll', function(e) {
 
   if (!ticking) {
     window.requestAnimationFrame(function() {
-      doSomething(last_known_scroll_position);
+      movePerspective(last_known_scroll_position);
       ticking = false;
     });
 
     ticking = true;
   }
 });
+
+let sidebarButton = document.querySelector('.sidebar-button');
+let mainMenu =document.querySelector('.main-menu');
+let menuOnclick=0;
+sidebarButton.addEventListener('click', function(e){
+  if(menuOnclick==0){
+    mainMenu.style.display = 'flex';
+    menuOnclick = 1;
+  }
+  else{
+    mainMenu.style.display = 'none';
+    menuOnclick = 0;
+  }
+});
+
