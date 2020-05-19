@@ -60,8 +60,9 @@ body{
         justify-content:center; 
         align-items: center;
 
-        @WIDTH_F_RING: 350px;
+        @WIDTH_F_RING: 450px;
         .first-ring{
+            background-color: rgba(0, 0, 0, 0.493);
             width: @WIDTH_F_RING+-60px;
             height: @WIDTH_F_RING+-60px;
             border-style: solid;
@@ -69,7 +70,14 @@ body{
             border-radius: 50%;
             border-color: red;
             box-shadow: 0 0 10px 1px red;
+            color: rgb(241, 206, 206);
+            font-size: 250%;
+            text-shadow: 0 0 10px rgb(161, 79, 79);
+            display: flex;
+            justify-content:center;
+            align-items: center;
         }
+        
 
         .menu-punct{
             width: @WIDTH_F_RING;

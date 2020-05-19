@@ -38,3 +38,22 @@ sidebarButton.addEventListener('click', function(e){
   }
 });
 
+let arrTextInformation =[
+  document.querySelector('news'),
+  document.querySelector('aboutSite'),
+  document.querySelector('mainPage'),
+  document.querySelector('games'),
+  document.querySelector('homeWorks')
+]
+let firstRing = document.querySelector('.first-ring');
+
+Array.from(document.querySelectorAll('.menu-square'), function(e){
+  e.addEventListener('mouseenter', function(){
+    firstRing.textContent = this.innerText;
+  });
+  e.addEventListener('mouseleave', function(){
+    firstRing.textContent = "PD-11-19";
+  });
+
+});
+
