@@ -161,6 +161,37 @@ body {
   height: 100%;
   width: 100%;
 }
+.viewer-window {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.863);
+  position: fixed;
+  top: 22.8px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 4000;
+  transition-property: all;
+  transition-duration: 2s;
+  justify-content: center;
+  align-items: center;
+}
+.viewer-window .viewer-close-space {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.viewer-window .viewer-content-container {
+  z-index: 4001;
+  background-color: #53635e;
+  height: 700px;
+  width: 50%;
+  padding: 30px;
+  overflow: auto;
+}
+.viewer-window .viewer-content-container .viewer-content {
+  padding: 20px;
+  color: white;
+  font-size: 2em;
+}
 .clear-header {
   height: 22.8px;
 }
@@ -229,6 +260,35 @@ h1 {
   filter: blur(0.1px) contrast(100%);
   transition-duration: 0.5s;
 }
+.section .main .cards-container .card-cell .card .card-blur .card-img {
+  display: none;
+  width: 20%;
+  height: 20%;
+}
+.section .main .cards-container .card-cell .card .card-blur .card-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.section .main .cards-container .card-cell .card .card-blur .card-box .about-card-content {
+  height: 100%;
+  width: 100%;
+  font-size: 110%;
+  overflow: auto;
+  padding: 5% 10% 5% 10%;
+}
+.section .main .cards-container .card-cell .card .card-blur .card-box .about-card-content .card-header {
+  font-size: 2.5em;
+  color: #c5a069;
+  text-shadow: 0 0 2px #abbd6a;
+}
+.section .main .cards-container .card-cell .card .card-blur .card-box .about-card-content .clear-box {
+  display: block;
+  height: 25px;
+}
+.section .main .cards-container .card-cell .card .card-blur .card-content {
+  font-size: 0em;
+}
 .section .main .cards-container .card-cell .card .card-blur .card-ref {
   display: flex;
   height: 100%;
@@ -240,17 +300,17 @@ h1 {
   width: 20%;
   height: 20%;
 }
-.section .main .cards-container .card-cell .card .card-blur .card-ref .card-content {
+.section .main .cards-container .card-cell .card .card-blur .card-ref .about-card-content {
   height: 100%;
   width: 100%;
   font-size: 110%;
   overflow: auto;
   padding: 0% 10%;
 }
-.section .main .cards-container .card-cell .card .card-blur .card-ref .card-content .card-header {
+.section .main .cards-container .card-cell .card .card-blur .card-ref .about-card-content .card-header {
   font-size: 2.5em;
-  color: #c5a069;
-  text-shadow: 0 0 2px #abbd6a;
+  color: #4879b1;
+  text-shadow: 0 0 4px #caa658;
 }
 .section .main .cards-container .card-cell .card .card-blur:hover {
   box-shadow: 0 0 15px 5px #99a9b6, 0 0 20px 10px #1b4aaf, inset 0 0 10px 5px #a5b4b9;

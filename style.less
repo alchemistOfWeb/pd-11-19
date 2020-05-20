@@ -184,7 +184,41 @@ body{
     width: 100%;
 }
 
+.viewer-window{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.863);
+    position: fixed;
+    top: @SIDBAR_MENU_HEIGHT;
+    height: 100vh;
+    width: 100vw;
+    z-index: 4000; 
+    transition-property: all;
+    transition-duration: 2s;
+    justify-content:center; 
+    align-items: center;
+    
 
+    .viewer-close-space{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .viewer-content-container{
+        z-index: 4001;
+        background-color: rgb(83, 99, 94);
+        height: 700px;
+        width: 50%;
+        padding: 30px;
+        overflow: auto;
+        
+        .viewer-content{
+            padding: 20px;
+            color: white;
+            font-size: 2em;
+        }
+    }
+}
 
 .clear-header{
     height: @SIDBAR_MENU_HEIGHT;
@@ -262,7 +296,42 @@ h1{
                         filter: blur(0.1px)  contrast(100%);
                         transition-duration: .5s;
                         
+                        .card-img{
+                            display: none;
+                            width: 20%;
+                            height: 20%;
 
+                        }
+
+                        .card-box{
+                            height: 100%;
+                            width: 100%;
+                            display: flex;
+
+                            .about-card-content{
+                                height: 100%;
+                                width: 100%;
+                                font-size: 110%;
+                                overflow: auto;
+                                padding: 5% 10% 5% 10%;
+                                .card-header{
+                                    font-size: 2.5em;
+                                    color: rgb(197, 160, 105);
+                                    text-shadow: 0 0 2px rgb(171, 189, 106);
+                                }
+                                .clear-box{
+                                    display: block;
+                                    height: 25px;
+                                }
+
+                            }
+    
+                            
+                        }
+                        
+                        .card-content{
+                            font-size: 0em;
+                        }
                         .card-ref{
                             display: flex;
                             height: 100%;
@@ -277,7 +346,7 @@ h1{
     
                             }
 
-                            .card-content{
+                            .about-card-content{
                                 height: 100%;
                                 width: 100%;
                                 font-size: 110%;
@@ -285,12 +354,14 @@ h1{
                                 padding: 0% 10%;
                                 .card-header{
                                     font-size: 2.5em;
-                                    color: rgb(197, 160, 105);
-                                    text-shadow: 0 0 2px rgb(171, 189, 106);
+                                    color: rgb(72, 121, 177);
+                                    text-shadow: 0 0 4px rgb(202, 166, 88);
                                 }
                             }
     
                         }
+
+                        
                     }
                     .card-blur:hover {
                         box-shadow: 0 0 15px 5px  rgb(153, 169, 182), 0 0 20px 10px  rgb(27, 74, 175), inset  0 0 10px 5px  rgb(165, 180, 185) ;

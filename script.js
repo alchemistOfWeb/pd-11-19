@@ -38,13 +38,7 @@ sidebarButton.addEventListener('click', function(e){
   }
 });
 
-let arrTextInformation =[
-  document.querySelector('news'),
-  document.querySelector('aboutSite'),
-  document.querySelector('mainPage'),
-  document.querySelector('games'),
-  document.querySelector('homeWorks')
-]
+
 let firstRing = document.querySelector('.first-ring');
 
 Array.from(document.querySelectorAll('.menu-square'), function(e){
@@ -55,5 +49,17 @@ Array.from(document.querySelectorAll('.menu-square'), function(e){
     firstRing.textContent = "PD-11-19";
   });
 
+});
+let viewerWindow = document.querySelector('.viewer-window');
+let viewerContent = viewerWindow.querySelector('.viewer-content');
+Array.from(document.querySelectorAll('.card-info'),function(e){
+  e.addEventListener('click', function(){
+    viewerContent.textContent = this.querySelector('.card-content').innerText;
+    viewerWindow.style.display = 'flex';
+  });
+});
+let viewerCloseSpace = viewerWindow.querySelector('.viewer-close-space');
+viewerCloseSpace.addEventListener('click', function(e){
+  viewerWindow.style.display = 'none';
 });
 
