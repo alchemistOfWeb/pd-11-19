@@ -36,6 +36,10 @@ body{
     .file-path{
         height: 43%;
         color: rgb(224, 220, 220);
+        .path-link{
+            color: rgb(189, 181, 181);
+            text-decoration: none;
+        }
 
     }
 }
@@ -179,14 +183,25 @@ body{
     height: 100%;
     width: 100%;
 }
+
+
+
 .clear-header{
     height: @SIDBAR_MENU_HEIGHT;
 }
 
+h1{
+    color: rgb(221, 133, 18);
+    text-shadow: 0 0 5px black;
+    font-size: 4em;
+    text-align: center;
+}
+
 .section{
     overflow: hidden;
-    background-color: rgb(201, 77, 77);
-    background-image: url(gifs/WeKf.gif);
+    background-color: rgba(70, 161, 126, 0.527);
+    background-image: url(gifs/clouds.gif);
+    background-blend-mode: color-dodge;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -197,6 +212,7 @@ body{
     .clear-main{
         height: 20px;
     }
+    
     .main{
         float: left;
         width: 75%;
@@ -214,50 +230,43 @@ body{
             perspective-origin: 50% 400px;
             perspective: 1000px;
             
-            
-
 
             .card-cell{
                 background-color: rgba(100, 51, 51, 0.021);
                 height: 230px;
                 padding: 30px;
-
-                
-
+                perspective-origin: 50% 50%;
+                perspective: 1000px;
                 .card{
-                    overflow: hidden;
-                    background-color: rgb(226, 151, 12);
                     /*background: linear-gradient(60deg, rgb(243, 236, 236), rgb(167, 167, 24));*/
                     
-
                     height: 100%;
                     width: 100%;
+                    /*border-radius: 50%;*/
+                    box-shadow: 0 0 100px 1px rgb(77, 77, 141);
                     
-                    border-style: double;
-                    border-width: 3px;
-                    border-color: khaki;
-                    border-radius: 50%;
-
-                    box-shadow: 0 0 100px 1px rgb(46, 46, 105);
-
                     .card-blur{
-                        background-image: url(gifs/BlueSfera_.gif);
+                        // background-image: url(gifs/BlueSfera_.gif);
+                        // background-color: rgb(226, 151, 12);
+                        // background: linear-gradient(120deg, rgb(36, 15, 15),rgb(139, 136, 136));
+                        background-image: url(img/card-r-phone2.jpg);
                         background-position: center;
                         background-size: 110% 110%;
+                        border-style: double;
+                        border-width: 3px;
+                        border-color: khaki;
                         overflow: hidden;
                         height: 100%;
                         width: 100%;
-                        border-radius: 50%;
-                        filter: blur(0.5px)  contrast(100%);
-
-                        
+                        // border-radius: 50%;
+                        filter: blur(0.1px)  contrast(100%);
                         transition-duration: .5s;
+                        
 
                         .card-ref{
                             display: flex;
                             height: 100%;
                             width: 100%;
-                            
                             text-decoration: none;
                             
     
@@ -267,19 +276,30 @@ body{
                                 height: 20%;
     
                             }
-                            .card-header{
-                                margin: auto;
-                                font-size: 2.5em;
+
+                            .card-content{
+                                height: 100%;
+                                width: 100%;
+                                font-size: 110%;
+                                overflow: auto;
+                                padding: 0% 10%;
+                                .card-header{
+                                    font-size: 2.5em;
+                                    color: rgb(197, 160, 105);
+                                    text-shadow: 0 0 2px rgb(171, 189, 106);
+                                }
                             }
     
                         }
                     }
                     .card-blur:hover {
-                        filter: blur(0px) contrast(200%);
-                        
-                    
+                        box-shadow: 0 0 15px 5px  rgb(153, 169, 182), 0 0 20px 10px  rgb(27, 74, 175), inset  0 0 10px 5px  rgb(165, 180, 185) ;
+                        perspective-origin: 10% 10%;
+                        transform:  translate3d(0px, 0px, 100px);
 
                     }
+                    
+                    
                 }
 
             }
@@ -415,25 +435,25 @@ body{
 @PROCENT: 100%;
 
     @media screen and(min-width: 520px){
-        .card-cell:nth-child(4n+1) .card{
+        .card-cell:nth-child(4n+1){
             transform: matrix3d(1.0, 0.0, -0.45, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
                                 0.0, 0.0, 65.0, 1.0);
         }
-        .card-cell:nth-child(4n+2) .card{
+        .card-cell:nth-child(4n+2){
             transform: matrix3d(1.0, 0.0, -0.15, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
                                 0.0, 0.0, -20.0,1.0);
         }
-        .card-cell:nth-child(4n+3) .card{
+        .card-cell:nth-child(4n+3){
             transform: matrix3d(1.0, 0.0, 0.15, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
                                 0.0, 0.0, -20.0,1.0);
         }
-        .card-cell:nth-child(4n+4) .card{
+        .card-cell:nth-child(4n+4){
             transform: matrix3d(1.0, 0.0, 0.45, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
@@ -444,19 +464,19 @@ body{
         .cards-container{
             grid-template-columns: repeat(3, @PROCENT/3) !important;
         }
-        .card-cell:nth-child(3n+1) .card{
+        .card-cell:nth-child(3n+1){
             transform: matrix3d(1.0, 0.0, -0.25, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
                                 0.0, 0.0, 20.0,1.0);
         }
-        .card-cell:nth-child(3n+2) .card{
+        .card-cell:nth-child(3n+2){
             transform: matrix3d(1.0, 0.0, 0.0, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
                                 0.0, 0.0, 0.0,1.0);
         }
-        .card-cell:nth-child(3n+3) .card{
+        .card-cell:nth-child(3n+3){
             transform: matrix3d(1.0, 0.0, 0.25, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
@@ -473,13 +493,13 @@ body{
         .cards-container{
             grid-template-columns: repeat(2, @PROCENT/2) !important;
         }
-        .card-cell:nth-child(2n+1) .card{
+        .card-cell:nth-child(2n+1){
             transform: matrix3d(1.0, 0.0, -0.15, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,
                                 0.0, 0.0, 0.0,1.0);
         }
-        .card-cell:nth-child(2n+2) .card{
+        .card-cell:nth-child(2n+2){
             transform: matrix3d(1.0, 0.0, 0.15, 0.0,
                                 0.0, 1.0, 0.0, 0.0,
                                 0.0, 0.0, 1.0, 0.0,

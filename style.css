@@ -33,6 +33,10 @@ body {
   height: 43%;
   color: #e0dcdc;
 }
+.header .file-path .path-link {
+  color: #bdb5b5;
+  text-decoration: none;
+}
 .main-menu {
   display: none;
   background-color: rgba(0, 0, 0, 0.863);
@@ -160,10 +164,17 @@ body {
 .clear-header {
   height: 22.8px;
 }
+h1 {
+  color: #dd8512;
+  text-shadow: 0 0 5px black;
+  font-size: 4em;
+  text-align: center;
+}
 .section {
   overflow: hidden;
-  background-color: #c94d4d;
-  background-image: url(gifs/WeKf.gif);
+  background-color: rgba(70, 161, 126, 0.527);
+  background-image: url(gifs/clouds.gif);
+  background-blend-mode: color-dodge;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -195,28 +206,27 @@ body {
   background-color: rgba(100, 51, 51, 0.021);
   height: 230px;
   padding: 30px;
+  perspective-origin: 50% 50%;
+  perspective: 1000px;
 }
 .section .main .cards-container .card-cell .card {
-  overflow: hidden;
-  background-color: #e2970c;
   /*background: linear-gradient(60deg, rgb(243, 236, 236), rgb(167, 167, 24));*/
   height: 100%;
   width: 100%;
+  /*border-radius: 50%;*/
+  box-shadow: 0 0 100px 1px #4d4d8d;
+}
+.section .main .cards-container .card-cell .card .card-blur {
+  background-image: url(img/card-r-phone2.jpg);
+  background-position: center;
+  background-size: 110% 110%;
   border-style: double;
   border-width: 3px;
   border-color: khaki;
-  border-radius: 50%;
-  box-shadow: 0 0 100px 1px #2e2e69;
-}
-.section .main .cards-container .card-cell .card .card-blur {
-  background-image: url(gifs/BlueSfera_.gif);
-  background-position: center;
-  background-size: 110% 110%;
   overflow: hidden;
   height: 100%;
   width: 100%;
-  border-radius: 50%;
-  filter: blur(0.5px) contrast(100%);
+  filter: blur(0.1px) contrast(100%);
   transition-duration: 0.5s;
 }
 .section .main .cards-container .card-cell .card .card-blur .card-ref {
@@ -230,12 +240,22 @@ body {
   width: 20%;
   height: 20%;
 }
-.section .main .cards-container .card-cell .card .card-blur .card-ref .card-header {
-  margin: auto;
+.section .main .cards-container .card-cell .card .card-blur .card-ref .card-content {
+  height: 100%;
+  width: 100%;
+  font-size: 110%;
+  overflow: auto;
+  padding: 0% 10%;
+}
+.section .main .cards-container .card-cell .card .card-blur .card-ref .card-content .card-header {
   font-size: 2.5em;
+  color: #c5a069;
+  text-shadow: 0 0 2px #abbd6a;
 }
 .section .main .cards-container .card-cell .card .card-blur:hover {
-  filter: blur(0px) contrast(200%);
+  box-shadow: 0 0 15px 5px #99a9b6, 0 0 20px 10px #1b4aaf, inset 0 0 10px 5px #a5b4b9;
+  perspective-origin: 10% 10%;
+  transform: translate3d(0px, 0px, 100px);
 }
 .section .main p {
   font-size: 1.1em;
@@ -331,16 +351,16 @@ body {
   }
 }
 @media screen and (min-width: 520px) {
-  .section .card-cell:nth-child(4n+1) .card {
+  .section .card-cell:nth-child(4n+1) {
     transform: matrix3d(1, 0, -0.45, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 65, 1);
   }
-  .section .card-cell:nth-child(4n+2) .card {
+  .section .card-cell:nth-child(4n+2) {
     transform: matrix3d(1, 0, -0.15, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -20, 1);
   }
-  .section .card-cell:nth-child(4n+3) .card {
+  .section .card-cell:nth-child(4n+3) {
     transform: matrix3d(1, 0, 0.15, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -20, 1);
   }
-  .section .card-cell:nth-child(4n+4) .card {
+  .section .card-cell:nth-child(4n+4) {
     transform: matrix3d(1, 0, 0.45, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 65, 1);
   }
 }
@@ -348,13 +368,13 @@ body {
   .section .cards-container {
     grid-template-columns: repeat(3, 33.33333333%) !important;
   }
-  .section .card-cell:nth-child(3n+1) .card {
+  .section .card-cell:nth-child(3n+1) {
     transform: matrix3d(1, 0, -0.25, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 20, 1);
   }
-  .section .card-cell:nth-child(3n+2) .card {
+  .section .card-cell:nth-child(3n+2) {
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
-  .section .card-cell:nth-child(3n+3) .card {
+  .section .card-cell:nth-child(3n+3) {
     transform: matrix3d(1, 0, 0.25, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 20, 1);
   }
   .section .aside {
@@ -367,10 +387,10 @@ body {
   .section .cards-container {
     grid-template-columns: repeat(2, 50%) !important;
   }
-  .section .card-cell:nth-child(2n+1) .card {
+  .section .card-cell:nth-child(2n+1) {
     transform: matrix3d(1, 0, -0.15, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
-  .section .card-cell:nth-child(2n+2) .card {
+  .section .card-cell:nth-child(2n+2) {
     transform: matrix3d(1, 0, 0.15, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
