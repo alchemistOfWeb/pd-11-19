@@ -7,7 +7,7 @@ body{
     background-size: cover;
 }
 
-@HEADER-HEIGHT: 40px;
+@HEADER-HEIGHT: 45px;
 @SIDBAR_MENU_HEIGHT: @HEADER-HEIGHT/100*57;
 
 .header{
@@ -22,6 +22,7 @@ body{
         background-color: rgb(29, 31, 36);
         display: flex;
         .sidebar-button{
+            font-size: 105%;
             margin: 2px auto;
             height: @SIDBAR_MENU_HEIGHT+4;
             padding: 3px 4px;
@@ -54,26 +55,86 @@ body{
     z-index: 5000; 
     transition-property: all;
     transition-duration: 2s;
-    justify-content:center; 
     align-items: center;
+    justify-content:center; 
+    
+    @WIDTH_BODY:500px;
+    @PUNCT_SIZE: 60px;
     .menu-body{
-        height: 600px;
-        width: 500px;
-        background-color: rgba(255, 0, 0, 0);
+        height: @WIDTH_BODY;
+        width: @WIDTH_BODY;
+        background-color: rgba(36, 138, 163, 0);
         display: flex;
-        justify-content:center; 
+        justify-content: center;
         align-items: center;
-
-        @WIDTH_F_RING: 450px;
-        .first-ring{
+        position: relative;
+        
+        @WIDTH_F_RING: @WIDTH_BODY+-@PUNCT_SIZE;
+        .first{
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        .second{
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .circle-for-menu{
             background-color: rgba(0, 0, 0, 0.493);
-            width: @WIDTH_F_RING+-60px;
-            height: @WIDTH_F_RING+-60px;
             border-style: solid;
             border-width: 2px;
             border-radius: 50%;
             border-color: red;
             box-shadow: 0 0 10px 1px red;
+            
+            align-items: center;
+        }
+        .menu-punct-container{
+            position: absolute;
+            .menu-punct{
+                width: 50%;
+                border: 1px dashed rgba(129, 32, 32, 0);
+                transform: rotate(0deg);
+                transform-origin: 100% 50%;
+                position: absolute;
+                border-radius: 50%;
+                .menu-square{
+                    /*background-image: url(gifs/GreenSfera_.gif);*/
+                    
+                    background-color: rgba(172, 217, 228, 0.877);
+                    border: 1px solid rgb(0, 0, 0);
+                    width: @PUNCT_SIZE;
+                    height: @PUNCT_SIZE;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    font-size: 130%;
+                    transition-duration: .5s;
+                    margin-left: -@PUNCT_SIZE/2;
+                    
+                    img{
+                        border-radius: 50%;
+                        
+                    }
+                }
+                .html-for-second{
+                    display: none;
+                    
+                    
+                }
+                
+            }
+        }
+        
+        .text-ring{
+            background-color: rgba(0, 0, 0, 0);
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 50%;
+            border-color: rgba(255, 0, 0, 0);
             color: rgb(241, 206, 206);
             font-size: 250%;
             text-shadow: 0 0 10px rgb(161, 79, 79);
@@ -82,78 +143,22 @@ body{
             align-items: center;
         }
         
-
-        .menu-punct{
-            width: @WIDTH_F_RING;
-            border: 1px dashed rgba(0, 0, 0, 0);
-            transform: rotate(0deg);
-            transform-origin: 50% 50%;
-            position: absolute;
-            .menu-square{
-                /*background-image: url(gifs/GreenSfera_.gif);*/
-                background-position: center;
-                background-size: 150% 150%;
-                background-color: rgba(172, 217, 228, 0.877);
-                border: 1px solid rgb(0, 0, 0);
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                overflow: hidden;
-                font-size: 130%;
-                display: flex;
-                transition-duration: .5s;
-                
-                a{
-                    display: flex;
-                    width: 100%;
-                    height: 100%;
-                    justify-content: center;
-                    align-items: center;
-                    text-decoration: none;
-                    
-                    
-                }
-            }
-            
-        }
-        @PUNCT_ROTATE: 360deg/5;
-        .menu-punct:nth-child(1){
-            transform: rotate(@PUNCT_ROTATE*1+18);
-            .menu-square{
-                transform: rotate(-@PUNCT_ROTATE+-18);
-            }
-        }
-        .menu-punct:nth-child(2){
-            transform: rotate(@PUNCT_ROTATE*2+18);
-            .menu-square{
-                transform: rotate(-@PUNCT_ROTATE*2-18);
-            }
-        }
-        .menu-punct:nth-child(3){
-            transform: rotate(@PUNCT_ROTATE*3+18);
-            .menu-square{
-                transform: rotate(-@PUNCT_ROTATE*3-18);
-            }
-        }
-        .menu-punct:nth-child(4){
-            transform: rotate(@PUNCT_ROTATE*4+18);
-            .menu-square{
-                transform: rotate(-@PUNCT_ROTATE*4-18);
-            }
-        }
-        .menu-punct:nth-child(5){
-            transform: rotate(@PUNCT_ROTATE*5+18);
-            .menu-square{
-                transform: rotate(-@PUNCT_ROTATE*5-18);
-            }
-        }
-
-
-
     }
-    
 
 }
+.menu-link{
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    text-decoration: none;
+    align-items: center;
+    
+    
+}
+
+
 .menu-square:hover{
     box-shadow: 0 0 10px 10px rgb(167, 118, 45);
 }
@@ -206,17 +211,46 @@ body{
 
     .viewer-content-container{
         z-index: 4001;
-        background-color: rgb(83, 99, 94);
-        height: 700px;
+        background: radial-gradient(99% 99%, rgb(83, 99, 94),rgb(89, 150, 130) );
+        height: 70%;
         width: 50%;
         padding: 30px;
         overflow: auto;
+
+        h2{
+            color: rgb(221, 133, 18);
+            text-shadow: 0 0 5px black;
+            font-size: 3em;
+            text-align: center;
+        }
+        h3{
+            color: rgb(221, 133, 18);
+            text-shadow: 0 0 5px black;
+            font-size: 2em;
+            text-align: center;
+        }
         
         .viewer-content{
             padding: 20px;
             color: white;
             font-size: 2em;
         }
+    }
+    @media screen and(max-width: 820px){
+        .viewer-content-container{
+            width: 80%;
+            padding: 15px;
+            h2{
+                font-size: 45px;
+            }
+            h3{
+                font-size: 30px;
+            }
+            .viewer-content{
+                font-size: 22px;
+            }
+        }
+        
     }
 }
 
@@ -230,6 +264,8 @@ h1{
     font-size: 4em;
     text-align: center;
 }
+
+
 
 .section{
     overflow: hidden;
@@ -459,7 +495,6 @@ h1{
             height: 450px;
             padding: 140px 201px 100px 187px;
             font-size: 1.1em;
-            
             margin-bottom: 50px;
             position: static;
             float: left;
@@ -489,17 +524,47 @@ h1{
         .aside{
             width: 70%;
             padding: 140px 165px 100px 163px;
+            font-size: 150%;
+            li, a{
+                color: black !important;
+                text-shadow: 0 0 5px grey;
+                margin-top: 10px;
+            }
+            
         }
     }
 
-    @media screen and(max-width: 720px) {
+    @media screen and(max-width: 770px) {
+
+        .viewer-content-container{
+            width: 95% !important;
+        }
         .card-cell{
             height: 120px !important;
             padding: 13px !important;
         }
         .aside{
-            width: 50%;
-            padding: 140px 80px 100px 75px;
+            width: 65%;
+            padding: 140px 150px 100px 140px;
+            margin-left: -30px;
+            font-size: 150%;
+        }
+        .about-card-content{
+            height: 100%;
+            width: 100%;
+            font-size: 75% !important;
+            overflow: auto;
+            padding: 5% 10% 5% 10%;
+            .card-header{
+                font-size: 1.7em !important;
+                color: rgb(197, 160, 105);
+                text-shadow: 0 0 2px rgb(171, 189, 106);
+            }
+            .clear-box{
+                display: block;
+                height: 10px !important ;
+            }
+
         }
     }
 
@@ -554,9 +619,10 @@ h1{
                                 0.0, 0.0, 20.0,1.0);
         }
         .aside{
-            width: 50%;
+            width: 70%;
             height: 300px;
-            padding: 100px 70px 70px 65px;
+            padding: 100px 85px 70px 80px;
+            margin-left: -10px;
         }
     }
 
@@ -576,8 +642,27 @@ h1{
                                 0.0, 0.0, 1.0, 0.0,
                                 0.0, 0.0, 0.0,1.0);
         }
+
+        .aside{
+            width: 260px;
+            height: 300px;
+            padding: 95px 80px 70px 70px;
+            margin-left: -15px;
+        }
     }
+
+    @media screen and(max-width: 375px){
+        .aside{
+            width: 230px;
+            height: 300px;
+            padding: 95px 70px 70px 65px;
+        }
+    }
+
+
 }
+
+
 
 .footer{
     background-color: black;
