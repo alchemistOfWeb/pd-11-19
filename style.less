@@ -31,6 +31,11 @@ body{
             border-radius: 20%;
             background: radial-gradient(50% 50%, rgb(201, 182, 182, .99) 0.1%,rgb(34, 58, 197, .99) );
             z-index: 10000;
+            border-style: ridge;
+            box-decoration-break: slice;
+        }
+        .sidebar-button:hover{
+            box-shadow: inset 0 0 10px 1px rgb(0, 255, 242);
         }
     }
 
@@ -144,6 +149,103 @@ body{
         }
         
     }
+    .right-menu-clear{
+        float: left;
+        background-color: rgba(0, 0, 0, 0);
+        height: 100%;
+        width: 30%;
+        right: 0;
+        display: none;
+        transition-duration: 1s;
+        
+    }
+    .right-menu{
+        background-color: rgba(0, 0, 0, 0.637);
+        height: 100%;
+        width: 30%;
+        right: 5px;
+        position: absolute;
+        display: none;
+        transition-duration: 1s;
+        overflow: auto;
+        padding: 0 30px;
+        text-align: center;
+        h2{
+            font-size: 3em;
+            color: white;
+            word-break: break-all;
+        }
+        h3{
+            font-size: 2.5em;
+            color: white;
+            word-break: break-all;
+        }
+        h4{
+            font-size: 2.3em;
+            color: rgb(235, 217, 183);
+            word-break: break-all;
+        }
+        p{
+            font-size: 2em;
+            color: white;
+        }
+        
+        .thems-container{
+            width: 100%;
+            margin-bottom: 100px;
+            .thems-ul{
+                list-style-type: none;
+                margin-bottom: 30px;
+                
+            }
+            .them-li{
+                background-size: 100% auto;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-top: 25px;
+                margin-bottom: 25px;
+                height: 150px;
+                width: 100%;
+                background-color: red;
+                box-shadow: 0 0 3px 1px grey, inset 0 0 40px 30px black;
+                transition-duration: 0.5s;
+                filter: contrast(70%);
+            }
+            .them-li:hover{
+                box-shadow: 0 0 6px 6px grey, inset 0 0 55px 20px black;
+                filter: contrast(100%);
+            }
+            .nature7{
+                background-image: url(img/nature7.jpg);
+            }
+            .summer1{
+                background-image: url(img/teodor-kuduschiev-summer-62kb.jpg);
+            }
+            .summer2{
+                background-image: url(img/ev-beach-22kb.jpg);
+            }
+            .winter1{
+                background-image: url(img/dominik-dombrowski-30kb.jpg);
+            }
+            .winter2{
+                background-image: url(img/fabrice-villard-winter-14kb.jpg);
+            }
+            .winter3{
+                background-image: url(img/ian-keefe-winter-42kb.jpg);
+            }
+            .winter4{
+                background-image: url(img/gabriel-alenius-winter-51kb.jpg);
+            }
+            .winter5{
+                background-image: url(img/noah-grossenbacher-winter-47kb.jpg);
+            }
+            .winter6{
+                background-image: url(img/alex-coffee-48kb.jpg);
+            }
+
+
+        }
+    }
 
 }
 .menu-link{
@@ -155,6 +257,11 @@ body{
     text-decoration: none;
     align-items: center;
     
+    
+}
+.inner-settings{
+    display: none;
+
     
 }
 

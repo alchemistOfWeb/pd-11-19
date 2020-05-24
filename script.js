@@ -1,7 +1,4 @@
 //НЕ ГОВНОКОД
-let last_known_scroll_position = 0;
-let ticking = false;
-let cardsContainer =document.querySelector('.cards-container');
 //   //\\       ||||||  ||||   ||||\  ||   ||   ||||   || //   ||||     |||     ||  /||  || || ||    ||||||
 //  //__\\      ||     ||  ||  || //  ||   ||  ||  ||  ||//   ||  ||   || ||    || //||  || || ||    || 
 // //----\\     ||     ||  ||  || \\  |||||||  ||  ||  ||\\   ||  ||   || ||    ||// ||  || || ||    ||||||
@@ -13,7 +10,7 @@ function movePerspective(scroll_pos) {
   let perspect= scroll_pos + 400;
   perspect.toString();
   console.log(perspect);
-  cardsContainer.style.perspectiveOrigin='50%'+ perspect +'px';
+  document.querySelector('.cards-container').style.perspectiveOrigin='50%'+ perspect +'px';
 }
 
 function alingingOnCircle(our_circle, cenText){
@@ -33,7 +30,7 @@ function alingingOnCircle(our_circle, cenText){
   });
   Array.from(document.querySelector('.second').querySelectorAll('.menu-square'), function(e){
     e.addEventListener('mouseenter', function(){
-      ourTextRing.textContent = this.innerText;
+      ourTextRing.textContent = e.querySelector('.text-for-center').textContent;
     });
     e.addEventListener('mouseleave', function(){
       ourTextRing.textContent = cenText;
@@ -45,12 +42,22 @@ function alingingOnCircle(our_circle, cenText){
       document.querySelector('.first').style.display = 'flex';
       document.querySelector('.second').style.display = 'none';
       centerText = 'PD-11-19';
-      ourTextRing.textContent = centerText;
+      document.querySelector('.text-ring').textContent = 'PD-11-';
+      document.querySelector('.right-menu-clear').style.display = 'none';
+      document.querySelector('.right-menu').style.display = 'none';
     });
   });
 
 }
+function includeLeftMenu(t){
+  document.querySelector('.right-menu-clear').style.display = 'block';
+  document.querySelector('.right-menu').style.display = 'block';
+  document.querySelector('.right-menu').innerHTML = t.querySelector('.inner-settings').innerHTML;
+}
 
+
+let last_known_scroll_position = 0;
+let ticking = false;
 window.addEventListener('scroll', function(e) {
   last_known_scroll_position = window.scrollY;
 
@@ -74,24 +81,23 @@ sidebarButton.addEventListener('click', function(e){
     document.querySelector('.first').style.display = 'flex';
     document.querySelector('.second').style.display = 'none';
     centerText = "PD-11-19";
-    textRing.textContent = centerText;
+    textRing.textContent = "PD-11-19";
     menuOnclick = 1;
   }
   else{
     mainMenu.style.display = 'none';
     menuOnclick = 0;
+    document.querySelector('.right-menu-clear').style.display = 'none';
+    document.querySelector('.right-menu').style.display = 'none';
   }
 });
 
-
-
 let numberPunctsFirst= 0;
-
 // Make events for puncts
 Array.from(document.querySelector('.first').querySelectorAll('.menu-square-first'), function(e){
   
   e.addEventListener('mouseenter', function(){
-    textRing.textContent = this.innerText;
+    textRing.textContent = this.querySelector('.text-for-center').textContent;
   });
   e.addEventListener('mouseleave', function(){
     textRing.textContent = centerText;
@@ -100,15 +106,12 @@ Array.from(document.querySelector('.first').querySelectorAll('.menu-square-first
     document.querySelector('.first').style.display = 'none';
     document.querySelector('.second').style.display = 'flex';
     document.querySelector('.second').innerHTML=e.parentNode.querySelector('.html-for-second').innerHTML;
-    centerText = e.textContent;
+    centerText = e.querySelector('.text-for-center').textContent;
     textRing.textContent = centerText;
     alingingOnCircle(document.querySelector('.second'), centerText);
-    
   });
   numberPunctsFirst++;
 });
-
-
 
 let radPunctFirst = 360/numberPunctsFirst;
 let radPunctNow =90;
@@ -121,6 +124,9 @@ Array.from(document.querySelector('.first').querySelectorAll('.menu-punct-first'
   radPunctNow +=radPunctFirst;
   minRadPunctNow-=radPunctFirst;
 });
+
+//change thems
+
 
 
 //for cards
@@ -136,7 +142,4 @@ let viewerCloseSpace = viewerWindow.querySelector('.viewer-close-space');
 viewerCloseSpace.addEventListener('click', function(e){
   viewerWindow.style.display = 'none';
 });
-
-
-
 
